@@ -903,6 +903,26 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-grid{
+        display:flex;
+        flex-direction:column-reverse;
+        gap:22px;
+      }
+
+      .hero-image{
+        order:-1;
+        min-height:220px;
+      }
+
+      .hero-image img{
+        width:min(80%,320px);
+        margin:0 auto;
+      }
+
+      .hero{
+        padding-top:40px;
+      }
+
       .hero {
         min-height: auto;
         padding-top: 72px;
