@@ -322,11 +322,15 @@
 
     .hero-image img {
       display: block;
-      width: min(100%, 700px);
+      width: min(112%, 760px);
+      max-width: none;
       height: auto;
       object-fit: contain;
       filter: drop-shadow(0 34px 34px rgba(0,0,0,.58));
-      mix-blend-mode: screen;
+      -webkit-mask-image: radial-gradient(ellipse 78% 74% at 50% 48%, #000 56%, rgba(0,0,0,.92) 70%, transparent 100%);
+      mask-image: radial-gradient(ellipse 78% 74% at 50% 48%, #000 56%, rgba(0,0,0,.92) 70%, transparent 100%);
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
     }
 
     /* Quick facts */
@@ -869,128 +873,6 @@
       .contact-phone { font-size: clamp(2rem, 11vw, 3.4rem); }
       .footer-inner { flex-direction: column; }
     }
-
-
-    /* Finální vzhled úvodní části */
-    :root {
-      --bg: #090a0c;
-      --bg-soft: #111216;
-      --panel: #15161a;
-      --red: #e11d2e;
-      --red-dark: #b91524;
-      --max: 1380px;
-    }
-
-    body::before {
-      background:
-        radial-gradient(circle at 83% 23%, rgba(225,29,46,.13), transparent 28%),
-        radial-gradient(circle at 10% 3%, rgba(255,255,255,.025), transparent 22%),
-        linear-gradient(180deg, #090a0c 0%, #0d0e11 100%);
-    }
-
-    .site-header {
-      background: rgba(8,9,11,.94);
-      border-bottom-color: rgba(255,255,255,.12);
-    }
-
-    .nav { height: 104px; gap: 32px; }
-    .brand { gap: 16px; }
-    .brand-mark { width: 70px; height: 70px; flex-basis: 70px; }
-    .brand-mark svg { filter: drop-shadow(0 0 12px rgba(225,29,46,.14)); }
-    .brand-text strong { font-size: 1.08rem; text-transform: uppercase; letter-spacing: .01em; }
-    .brand-text span { font-size: .84rem; margin-top: 7px; }
-    .nav-links { gap: 38px; }
-    .nav-links a { font-weight: 700; color: #f0f0f2; }
-    .nav-links a:hover { color: var(--red); }
-    .nav-phone {
-      min-height: 52px; padding: 0 22px; border-radius: 8px;
-      background: transparent; border: 1px solid var(--red);
-      box-shadow: inset 0 0 0 1px rgba(225,29,46,.08);
-    }
-    .nav-phone::before { content: "☎"; color: var(--red); font-size: 1.1rem; }
-    .nav-phone:hover { background: rgba(225,29,46,.1); }
-
-    .hero {
-      min-height: auto; padding: 52px 0 28px;
-      border-bottom: 0;
-    }
-    .hero-grid { grid-template-columns: .92fr 1.08fr; gap: 34px; }
-    .eyebrow { color: var(--red); letter-spacing: .2em; margin-bottom: 18px; }
-    .eyebrow::before { display: none; }
-    .hero h1 {
-      font-size: clamp(3.9rem, 6vw, 6.6rem);
-      line-height: .96; letter-spacing: -.055em; max-width: 690px;
-    }
-    .hero h1 span { display: block; color: var(--red); }
-    .hero-copy {
-      color: #d5d5d8; max-width: 610px; font-size: 1.14rem;
-      line-height: 1.75; margin-top: 26px;
-    }
-    .hero-actions { margin-top: 30px; gap: 18px; }
-    .btn { min-height: 56px; border-radius: 7px; padding: 0 26px; }
-    .btn-primary { background: linear-gradient(135deg, #e31d2f, #c91424); box-shadow: 0 14px 34px rgba(225,29,46,.22); }
-    .btn-primary::before { content: "☎"; margin-right: 10px; }
-    .btn-secondary { border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.015); }
-    .hero-image { min-height: 455px; justify-content: flex-end; }
-    .hero-image::before {
-      width: 90%; right: -2%; top: 8%;
-      background: radial-gradient(circle, rgba(225,29,46,.28) 0%, rgba(225,29,46,.09) 42%, transparent 70%);
-      filter: blur(34px);
-    }
-    .hero-image img {
-      width: min(110%, 760px); max-width: none; margin-right: -4%;
-      mix-blend-mode: normal; border-radius: 2px;
-      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
-      mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
-      filter: drop-shadow(0 34px 38px rgba(0,0,0,.65));
-    }
-
-    .quick-facts { padding: 0 0 30px; }
-    .facts-grid {
-      gap: 0; border: 1px solid rgba(255,255,255,.12); border-radius: 18px;
-      background: rgba(10,11,13,.72); overflow: hidden;
-    }
-    .fact {
-      min-height: 120px; border: 0; border-right: 1px solid rgba(255,255,255,.09);
-      border-radius: 0; background: transparent; padding: 24px 26px;
-      display: flex; align-items: center; gap: 20px;
-    }
-    .fact:last-child { border-right: 0; }
-    .fact-icon { width: 48px; height: 48px; flex: 0 0 48px; color: var(--red); }
-    .fact-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-    .fact strong { font-size: 1.02rem; margin-bottom: 4px; }
-    .fact span:not(.fact-icon) { color: #b9b9be; line-height: 1.45; }
-
-    @media (max-width: 1100px) {
-      .nav-links { gap: 20px; }
-      .brand-text span { display: none; }
-      .hero h1 { font-size: clamp(3.3rem, 6vw, 5.2rem); }
-    }
-
-    @media (max-width: 920px) {
-      .nav { height: 82px; }
-      .brand-mark { width: 54px; height: 54px; flex-basis: 54px; }
-      .nav-links { top: 82px; }
-      .hero { padding-top: 54px; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-image { min-height: 360px; justify-content: center; }
-      .hero-image img { width: min(100%, 720px); margin-right: 0; }
-      .facts-grid { grid-template-columns: repeat(2, 1fr); }
-      .fact:nth-child(2) { border-right: 0; }
-      .fact:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.09); }
-    }
-
-    @media (max-width: 620px) {
-      .brand-text strong { font-size: .92rem; }
-      .hero { padding-top: 42px; }
-      .hero h1 { font-size: clamp(3rem, 15vw, 4.4rem); }
-      .hero-copy { font-size: 1rem; line-height: 1.65; }
-      .hero-image { min-height: 260px; }
-      .facts-grid { grid-template-columns: 1fr; }
-      .fact { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.09); }
-      .fact:last-child { border-bottom: 0; }
-    }
-
   </style>
 </head>
 <body>
@@ -1052,22 +934,10 @@
     <!-- RYCHLÉ INFORMACE -->
     <section class="quick-facts">
       <div class="container facts-grid">
-        <div class="fact reveal">
-          <span class="fact-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 4 40 10v12c0 10-6.7 17.5-16 22C14.7 39.5 8 32 8 22V10l16-6Z"/><path d="m16 24 5 5 11-12"/></svg></span>
-          <div><strong>Kvalitní opravy</strong><span>Poctivá práce a ověřené postupy.</span></div>
-        </div>
-        <div class="fact reveal">
-          <span class="fact-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="26" r="17"/><path d="M24 26V15M24 26l8 5M19 4h10"/></svg></span>
-          <div><strong>Rychlé řešení</strong><span>Repasované převodovky máme skladem.</span></div>
-        </div>
-        <div class="fact reveal">
-          <span class="fact-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M17 23v19H7V23h10Zm0 15h18c4 0 7-3 7-7v-2c0-3-2-5-5-5h-8l3-7c1-3-1-7-4-8l-8 14h-3"/></svg></span>
-          <div><strong>Férový přístup</strong><span>Jasná a přímá domluva předem.</span></div>
-        </div>
-        <div class="fact reveal">
-          <span class="fact-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M20 5h8l1.2 5.5a16 16 0 0 1 3.8 1.6l4.7-3.1 5.7 5.7-3.1 4.7a16 16 0 0 1 1.6 3.8L47 24v8l-5.1 1.2a16 16 0 0 1-1.6 3.8l3.1 4.7-5.7 5.7-4.7-3.1a16 16 0 0 1-3.8 1.6L28 51h-8l-1.2-5.1a16 16 0 0 1-3.8-1.6l-4.7 3.1-5.7-5.7L7.7 37a16 16 0 0 1-1.6-3.8L1 32v-8l5.1-1.2a16 16 0 0 1 1.6-3.8l-3.1-4.7 5.7-5.7 4.7 3.1a16 16 0 0 1 3.8-1.6L20 5Z" transform="scale(.9) translate(2 -2)"/><circle cx="24" cy="25" r="6"/></svg></span>
-          <div><strong>Dlouholeté zkušenosti</strong><span>Specializujeme se na převodovky.</span></div>
-        </div>
+        <div class="fact reveal"><strong>Výměnný způsob</strong><span>Rychlejší řešení bez zbytečného čekání.</span></div>
+        <div class="fact reveal"><strong>Převodovky skladem</strong><span>Dostupnost ověříme telefonicky.</span></div>
+        <div class="fact reveal"><strong>Osobní odběr</strong><span>Nebo doprava po vzájemné dohodě.</span></div>
+        <div class="fact reveal"><strong>Přímá domluva</strong><span>Bez složitého objednávkového systému.</span></div>
       </div>
     </section>
 
