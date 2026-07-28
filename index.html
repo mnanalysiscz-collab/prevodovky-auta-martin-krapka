@@ -973,7 +973,24 @@
       .contact-phone { font-size: clamp(2rem, 11vw, 3.4rem); }
       .footer-inner { flex-direction: column; }
     }
-  </style>
+  
+      /* Mobile hero reorder */
+      @media (max-width: 920px){
+        .hero-grid{display:flex;flex-direction:column;}
+        .hero-image{order:2;min-height:310px;}
+        .hero-image img{width:min(80%,320px);margin:0 auto;}
+        .hero-copy{order:3;}
+        .hero-brands{order:4;}
+        .hero-actions{order:5;}
+      }
+
+      @media (max-width:620px){
+        .contact-phone{
+          font-size:clamp(1.55rem,8vw,2.2rem);
+        }
+      }
+
+</style>
 </head>
 <body>
 
