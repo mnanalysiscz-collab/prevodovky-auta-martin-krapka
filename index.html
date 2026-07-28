@@ -228,11 +228,26 @@
     }
 
     .hero-grid {
+      display: block;
+    }
+
+    .hero-content {
       display: grid;
       grid-template-columns: 1.03fr .97fr;
-      gap: 64px;
+      grid-template-areas:
+        "title image"
+        "copy image"
+        "brands image"
+        "actions image";
+      column-gap: 64px;
       align-items: center;
     }
+
+    .hero-content h1 { grid-area: title; }
+    .hero-copy { grid-area: copy; }
+    .hero-image { grid-area: image; }
+    .hero-brands { grid-area: brands; }
+    .hero-actions { grid-area: actions; }
 
     .hero h1 {
       font-size: clamp(3rem, 7.3vw, 6.35rem);
@@ -895,7 +910,36 @@
 
       .menu-toggle { display: block; }
       .nav-phone { display: none; }
-      .hero-grid,
+
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero-content h1 { order: 1; }
+      .hero-copy { order: 2; }
+
+      .hero-image {
+        order: 3;
+        width: 100%;
+        min-height: 310px;
+        margin: 8px 0 10px;
+      }
+
+      .hero-image img {
+        width: min(80%, 320px);
+        margin: 0 auto;
+      }
+
+      .hero-brands {
+        order: 4;
+        width: 100%;
+      }
+
+      .hero-actions {
+        order: 5;
+        width: 100%;
+      }
       .about-grid,
       .contact-wrap {
         grid-template-columns: 1fr;
@@ -1014,10 +1058,14 @@
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <h1>Opravy a repase <span>převodovek</span></h1>
+
           <p class="hero-copy">
             Opravujeme automobilové převodovky výměnným způsobem. Repasované převodovky máme skladem, osobní odběr nebo dopravu řešíme po dohodě.
           </p>
 
+          <div class="hero-image reveal">
+            <img src="prevodovka-hero.png" alt="Automobilová převodovka po opravě a repasi" width="685" height="470">
+          </div>
 
           <div class="hero-brands">
             <span>Nejčastěji opravujeme</span>
@@ -1028,11 +1076,6 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="tel:+420608208060">Zavolat +420 608 208 060</a>
           </div>
-
-        </div>
-
-        <div class="hero-image reveal">
-          <img src="prevodovka-hero.png" alt="Automobilová převodovka po opravě a repasi" width="685" height="470">
         </div>
       </div>
     </section>
