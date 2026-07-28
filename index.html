@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Servis a repase automobilových převodovek. Férový přístup, kvalitní opravy a dlouholeté zkušenosti.">
+  <meta name="description" content="Martin Křapka – opravy a repase automobilových převodovek. Férový přístup, kvalitní opravy a dlouholeté zkušenosti.">
   <meta name="theme-color" content="#0d0d0f">
-  <title>Servis a repase převodovek</title>
+  <title>Martin Křapka | Opravy převodovek</title>
 
   <style>
     :root {
@@ -132,19 +132,23 @@
     }
 
     .brand-mark {
-      width: 58px;
-      height: 58px;
-      flex: 0 0 58px;
-      display: grid;
-      place-items: center;
-      color: var(--red);
+      width: 104px;
+      height: 62px;
+      flex: 0 0 104px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 7px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #fff;
     }
 
-    .brand-mark svg {
+    .brand-mark img {
+      display: block;
       width: 100%;
       height: 100%;
-      display: block;
-      overflow: visible;
+      object-fit: contain;
     }
 
     .brand-text {
@@ -811,6 +815,21 @@
       max-width: 570px;
     }
 
+
+    .contact-logo {
+      width: min(100%, 390px);
+      margin-bottom: 28px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .contact-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     .contact-phone {
       display: inline-block;
       font-size: clamp(1.5rem, 3vw, 2.5rem);
@@ -908,6 +927,16 @@
         transform: none;
       }
 
+
+      .brand-mark {
+        width: 82px;
+        height: 52px;
+        flex-basis: 82px;
+      }
+
+      .brand-text strong {
+        font-size: .88rem;
+      }
       .menu-toggle { display: block; }
       .nav-phone { display: none; }
 
@@ -1026,16 +1055,12 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container nav">
-      <a href="#uvod" class="brand" aria-label="Přejít na úvod">
-        <div class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M27 4h10l1.5 7.1a22 22 0 0 1 4.9 2l6.1-4 7.1 7.1-4 6.1a22 22 0 0 1 2 4.9L62 29v10l-7.4 1.8a22 22 0 0 1-2 4.9l4 6.1-7.1 7.1-6.1-4a22 22 0 0 1-4.9 2L37 64H27l-1.5-7.1a22 22 0 0 1-4.9-2l-6.1 4-7.1-7.1 4-6.1a22 22 0 0 1-2-4.9L2 39V29l7.4-1.8a22 22 0 0 1 2-4.9l-4-6.1 7.1-7.1 6.1 4a22 22 0 0 1 4.9-2L27 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <circle cx="32" cy="34" r="6" stroke="currentColor" stroke-width="2"/>
-            <path d="M10 34h16M38 34h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      <a href="#uvod" class="brand" aria-label="Martin Křapka – přejít na úvod">
+        <div class="brand-mark">
+          <img src="logo-martin-krapka.png" alt="Martin Křapka – Opravy převodovek">
         </div>
         <div class="brand-text">
-          <strong>Servis a repase převodovek</strong>
+          <strong>Martin Křapka &amp; Opravy převodovek</strong>
           <span>Férový přístup, kvalitní opravy a dlouholeté zkušenosti.</span>
         </div>
       </a>
@@ -1205,6 +1230,9 @@
       <div class="container">
         <div class="contact-wrap reveal">
           <div class="contact-main">
+            <div class="contact-logo">
+              <img src="logo-martin-krapka.png" alt="Martin Křapka – Opravy převodovek">
+            </div>
             <div class="eyebrow">Kontakt</div>
             <h2>Potřebujete poradit s převodovkou?</h2>
             <p>Nejrychlejší je zavolat. Sdělte nám značku, model vozu a případně označení převodovky.</p>
@@ -1233,7 +1261,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
-      <span>© <span id="year"></span> Servis a repase převodovek</span>
+      <span>© <span id="year"></span> Martin Křapka – Opravy převodovek</span>
       <a href="#uvod">Zpět nahoru ↑</a>
     </div>
   </footer>
