@@ -1040,14 +1040,25 @@
 }
 
 
+.hero-image{position:relative;overflow:visible}
+.hero-base,.hero-video{
+ position:absolute;
+ inset:0;
+ margin:auto;
+ width:min(112%,760px);
+ height:auto;
+ object-fit:contain;
+ filter:drop-shadow(0 34px 34px rgba(0,0,0,.58));
+}
+.hero-base{z-index:1;}
 .hero-video{
-  display:block;
-  width:min(112%,760px);
-  max-width:none;
-  height:auto;
-  object-fit:contain;
-  filter:drop-shadow(0 34px 34px rgba(0,0,0,.58));
-  border-radius:8px;
+ z-index:2;
+ opacity:.55;
+ mix-blend-mode:screen;
+ pointer-events:none;
+}
+@media (max-width:920px){
+ .hero-base,.hero-video{width:min(80%,320px);}
 }
 
 </style>
@@ -1091,10 +1102,11 @@
           </p>
 
           <div class="hero-image reveal">
-            <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="prevodovka-hero.png">
-              <source src="2026-07-29_11-25-25_Lumina.mp4" type="video/mp4">
-            </video>
-          </div>
+  <img class="hero-base" src="prevodovka-hero.png" alt="Automobilová převodovka po opravě a repasi" width="685" height="470">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="2026-07-29_11-25-25_Lumina.mp4" type="video/mp4">
+  </video>
+</div>
 
           <div class="hero-brands">
             <span>Nejčastěji opravujeme</span>
