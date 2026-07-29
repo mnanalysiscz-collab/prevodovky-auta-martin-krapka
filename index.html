@@ -1070,7 +1070,28 @@
  mask-composite: add;
 }
 @media (max-width:920px){
- .hero-base,.hero-video{width:min(80%,320px);}
+  .hero-image{
+    min-height:310px;
+  }
+
+  .hero-base,
+  .hero-video{
+    width:min(80%,320px);
+    left:50%;
+    top:50%;
+    right:auto;
+    bottom:auto;
+    margin:0;
+    transform:translate(-50%,-50%);
+  }
+
+  /* Video má jiný poměr stran než původní PNG. Na mobilu ho
+     srovnáme přesně na rozměr obrázku, aby maska seděla na kolech. */
+  .hero-video{
+    aspect-ratio:685 / 470;
+    height:auto;
+    object-fit:fill;
+  }
 }
 
 </style>
