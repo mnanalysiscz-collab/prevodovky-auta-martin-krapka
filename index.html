@@ -1083,24 +1083,22 @@
         max-width: 360px !important;
         min-height: 270px;
         margin: 10px auto 18px !important;
-        overflow: hidden !important;
+        overflow: visible !important;
         isolation: auto !important;
-        background: radial-gradient(ellipse 76% 72% at 50% 50%, #000 0%, #000 58%, rgba(0,0,0,.9) 70%, rgba(0,0,0,.45) 82%, transparent 100%);
-        -webkit-mask-image: radial-gradient(ellipse 76% 72% at 50% 50%, #000 0%, #000 60%, rgba(0,0,0,.95) 72%, rgba(0,0,0,.45) 84%, transparent 100%);
-        mask-image: radial-gradient(ellipse 76% 72% at 50% 50%, #000 0%, #000 60%, rgba(0,0,0,.95) 72%, rgba(0,0,0,.45) 84%, transparent 100%);
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
+        background: transparent !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
       }
 
       .hero-video {
         width: min(100%, 340px) !important;
         max-width: 340px !important;
-        mix-blend-mode: screen !important;
-        -webkit-mask-image: none;
-        mask-image: none;
+        mix-blend-mode: normal !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+        filter: drop-shadow(0 22px 24px rgba(0,0,0,.45));
       }
     }
-
 </style>
 </head>
 <body>
@@ -1142,7 +1140,7 @@
           </p>
 
           <div class="hero-image reveal" style="width:100%; max-width:520px; margin:0 auto; overflow:visible; isolation:auto;">
-            <video class="hero-video" style="display:block; width:520px !important; max-width:100% !important; height:auto !important; margin:0 auto;" autoplay muted loop playsinline preload="metadata" poster="prevodovka-hero.png" aria-label="Animovaná automobilová převodovka">
+            <video class="hero-video" style="display:block; width:520px !important; max-width:100% !important; height:auto !important; margin:0 auto;" autoplay muted loop playsinline preload="metadata" aria-label="Animovaná automobilová převodovka">
               <source src="prevodovka-animace(2).mp4" type="video/mp4">
             </video>
           </div>
