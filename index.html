@@ -369,10 +369,6 @@
       animation: gearbox-enter 1.05s cubic-bezier(.2,.75,.25,1) both;
     }
 
-    .hero-image.visible.floating img {
-      animation: gearbox-float 5.8s ease-in-out infinite;
-    }
-
     .hero-image.visible::after {
       animation: gearbox-glow 3.8s ease-in-out 1.05s infinite alternate;
     }
@@ -403,15 +399,6 @@
       to {
         opacity: .92;
         transform: scale(1.04);
-      }
-    }
-
-    @keyframes gearbox-float {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-9px) rotate(.45deg);
       }
     }
 
@@ -1052,6 +1039,17 @@
     }
 }
 
+
+.hero-video{
+  display:block;
+  width:min(112%,760px);
+  max-width:none;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 34px 34px rgba(0,0,0,.58));
+  border-radius:8px;
+}
+
 </style>
 </head>
 <body>
@@ -1093,7 +1091,9 @@
           </p>
 
           <div class="hero-image reveal">
-            <img src="prevodovka-hero.png" alt="Automobilová převodovka po opravě a repasi" width="685" height="470">
+            <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="prevodovka-hero.png">
+              <source src="2026-07-29_11-25-25_Lumina.mp4" type="video/mp4">
+            </video>
           </div>
 
           <div class="hero-brands">
@@ -1292,16 +1292,6 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-
-          if (entry.target.classList.contains('hero-image')) {
-            const gearboxImage = entry.target.querySelector('img');
-            gearboxImage?.addEventListener('animationend', (event) => {
-              if (event.animationName === 'gearbox-enter') {
-                entry.target.classList.add('floating');
-              }
-            }, { once: true });
-          }
-
           observer.unobserve(entry.target);
         }
       });
