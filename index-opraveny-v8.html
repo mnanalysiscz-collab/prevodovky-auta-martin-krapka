@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Martin Křapka – opravy a repase automobilových převodovek. Férový přístup, kvalitní opravy a dlouholeté zkušenosti.">
+  <meta name="theme-color" content="#0d0d0f">
+  <title>Martin Křapka | Opravy převodovek</title>
+
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --bg-soft: #151518;
+      --panel: #1b1b1f;
+      --panel-light: #222227;
+      --text: #f5f5f5;
+      --muted: #b3b3ba;
+      --red: #d62828;
+      --red-dark: #aa1f1f;
+      --line: rgba(255,255,255,.1);
+      --shadow: 0 18px 45px rgba(0,0,0,.28);
+      --radius: 18px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(214,40,40,.11), transparent 30%),
+        radial-gradient(circle at 90% 35%, rgba(214,40,40,.07), transparent 26%),
+        linear-gradient(180deg, #0c0c0e 0%, #101013 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #ff6767;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.45rem);
+      line-height: 1.08;
+      max-width: 760px;
+      letter-spacing: -.04em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 720px;
+      margin-top: 18px;
+      font-size: 1.05rem;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(13,13,15,.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 124px;
+      height: 74px;
+      flex: 0 0 124px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      overflow: visible;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .brand-mark img {
+      display:block;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text strong {
+      font-size: 1rem;
+      letter-spacing: .01em;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: .75rem;
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #d7d7db;
+      font-size: .94rem;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      padding: 11px 17px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .nav-phone:hover {
+      transform: translateY(-1px);
+      background: #e32f2f;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      color: white;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: .2s ease;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 92px 0 74px;
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: block;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      grid-template-areas:
+        "title image"
+        "copy image"
+        "brands image"
+        "actions image";
+      column-gap: 64px;
+      align-items: center;
+    }
+
+    .hero-content h1 { grid-area: title; }
+    .hero-copy { grid-area: copy; }
+    .hero-image { grid-area: image; }
+    .hero-brands { grid-area: brands; }
+    .hero-actions { grid-area: actions; }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7.3vw, 6.35rem);
+      line-height: .94;
+      letter-spacing: -.065em;
+      max-width: 760px;
+    }
+
+    .hero h1 span {
+      color: #ef4040;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      max-width: 640px;
+      font-size: clamp(1.03rem, 2vw, 1.2rem);
+      margin-top: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 12px;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 14px 32px rgba(214,40,40,.22);
+    }
+
+    .btn-primary:hover {
+      background: #e42e2e;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.17);
+      background: rgba(255,255,255,.03);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,.35);
+      background: rgba(255,255,255,.06);
+      transform: translateY(-2px);
+    }
+
+    .hero-note {
+      color: #8f8f96;
+      font-size: .86rem;
+      margin-top: 18px;
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+    }
+
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      width: 78%;
+      aspect-ratio: 1;
+      right: -8%;
+      top: 12%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(214,40,40,.28) 0%, rgba(214,40,40,.12) 34%, transparent 68%);
+      filter: blur(22px);
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 13%;
+      right: 2%;
+      bottom: 7%;
+      height: 22%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(214,40,40,.34) 0%, rgba(214,40,40,.14) 38%, transparent 72%);
+      filter: blur(24px);
+      opacity: .78;
+      transform: scale(.92);
+    }
+
+    .hero-image img {
+      display: block;
+      width: min(100%, 640px);
+      max-width: 640px;
+      margin: 0 auto;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 34px 34px rgba(0,0,0,.58));
+      transform-origin: 52% 62%;
+      will-change: transform, opacity, filter;
+    }
+
+    .hero-image.visible img {
+      animation: gearbox-enter 1.05s cubic-bezier(.2,.75,.25,1) both;
+    }
+
+    .hero-image.visible::after {
+      animation: gearbox-glow 3.8s ease-in-out 1.05s infinite alternate;
+    }
+
+    @keyframes gearbox-enter {
+      0% {
+        opacity: 0;
+        transform: translateY(24px) scale(.94);
+        filter: blur(5px) drop-shadow(0 18px 24px rgba(0,0,0,.35));
+      }
+      65% {
+        opacity: 1;
+        transform: translateY(-3px) scale(1.012);
+        filter: blur(0) drop-shadow(0 38px 40px rgba(0,0,0,.62));
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0) drop-shadow(0 34px 34px rgba(0,0,0,.58));
+      }
+    }
+
+    @keyframes gearbox-glow {
+      from {
+        opacity: .58;
+        transform: scale(.9);
+      }
+      to {
+        opacity: .92;
+        transform: scale(1.04);
+      }
+    }
+
+
+    .hero-brands{
+      margin-top:32px;
+      margin-bottom:34px;
+      padding:22px 26px;
+      border-left:4px solid var(--red);
+      border-radius:0 14px 14px 0;
+      background:rgba(255,255,255,.035);
+      backdrop-filter:blur(6px);
+    }
+
+    .hero-brands span{
+      display:block;
+      color:#ff6b6b;
+      font-size:.8rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    .hero-brands strong{
+      display:block;
+      font-size:1.35rem;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .hero-brands p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    /* Quick facts */
+    .quick-facts {
+      padding-bottom: 24px;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .fact {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.025);
+      padding: 22px;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* Services */
+    .services {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .service-card {
+      min-height: 250px;
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      transition: transform .22s ease, border-color .22s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(214,40,40,.45);
+    }
+
+    .service-number {
+      color: #ef5555;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    .service-card h3 {
+      font-size: 1.35rem;
+      margin-top: 40px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: block;
+      max-width: 760px;
+    }
+
+    .about-panel {
+      min-height: 410px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        linear-gradient(145deg, rgba(214,40,40,.11), transparent 45%),
+        var(--panel);
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: var(--shadow);
+    }
+
+    .about-panel-label {
+      color: #ff6b6b;
+      font-weight: 800;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .about-panel strong {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      max-width: 430px;
+      margin-top: 14px;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .about-list li {
+      position: relative;
+      color: #d3d3d7;
+      padding-left: 30px;
+    }
+
+    .about-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #ff5555;
+      font-weight: 900;
+    }
+
+    /* Brands */
+    .brands {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .brand-card {
+      min-height: 126px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid var(--line);
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      font-weight: 900;
+      letter-spacing: .03em;
+    }
+
+    .brands-note {
+      color: var(--muted);
+      margin-top: 18px;
+      font-size: .92rem;
+    }
+
+    /* Process */
+    .process-grid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .process-step {
+      padding: 28px;
+      border-left: 3px solid var(--red);
+      background: rgba(255,255,255,.025);
+      border-radius: 0 14px 14px 0;
+    }
+
+    .process-step span {
+      color: #ff6363;
+      font-weight: 900;
+      font-size: .8rem;
+      letter-spacing: .12em;
+    }
+
+    .process-step h3 {
+      margin: 12px 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .process-step p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+
+    .about-brands {
+      margin-top: 30px;
+      padding: 22px 24px;
+      border-left: 3px solid var(--red);
+      background: rgba(255,255,255,.035);
+      border-radius: 0 14px 14px 0;
+    }
+
+    .about-brands span {
+      display: block;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .about-brands strong {
+      display: block;
+      font-size: 1.12rem;
+      line-height: 1.45;
+    }
+
+    .about-brands p {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: .95rem;
+    }
+
+
+    /* Reviews */
+    .reviews {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .reviews-summary {
+      margin-top: 38px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(214,40,40,.1), rgba(255,255,255,.02));
+    }
+
+    .score-group {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .google-label {
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .score-number {
+      display: block;
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 900;
+      line-height: .9;
+      letter-spacing: -.06em;
+      margin-top: 8px;
+    }
+
+    .stars {
+      color: #f7c948;
+      font-size: 1.18rem;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .reviews-count {
+      color: var(--muted);
+      margin-top: 7px;
+    }
+
+    .reviews-grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .review-card {
+      min-height: 250px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      transition: transform .22s ease, border-color .22s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(214,40,40,.45);
+    }
+
+    .review-author {
+      margin-top: 15px;
+      font-size: 1.02rem;
+    }
+
+    .review-meta,
+    .review-date {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .review-date {
+      margin-top: 3px;
+    }
+
+    .review-text {
+      color: #dedee2;
+      margin-top: 18px;
+      font-size: .96rem;
+    }
+
+    .review-card details {
+      margin-top: 18px;
+    }
+
+    .review-card details .review-text {
+      margin-top: 12px;
+    }
+
+    .review-card summary {
+      color: #ff6868;
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .review-card summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .reviews-footer {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Contact */
+    .contact-wrap {
+      border: 1px solid rgba(214,40,40,.3);
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      background:
+        linear-gradient(135deg, rgba(214,40,40,.16), transparent 45%),
+        var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-main {
+      padding: clamp(34px, 6vw, 66px);
+    }
+
+    .contact-main h2 {
+      font-size: clamp(1.8rem, 3.8vw, 3rem);
+      line-height: 1;
+      letter-spacing: -.05em;
+      max-width: 620px;
+    }
+
+    Jpx;
+      max-width: 570px;
+    }
+
+
+    .contact-logo {
+      width:min(100%,460px);
+      margin-bottom:28px;
+      padding:0;
+      border-radius:0;
+      background:transparent;
+    }
+
+    .contact-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .contact-phone {
+      display: inline-block;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      line-height: 1;
+      font-weight: 900;
+      margin-top: 30px;
+      letter-spacing: -.05em;
+    }
+
+    .contact-phone:hover {
+      color: #ff5d5d;
+    }
+
+    .contact-side {
+      border-left: 1px solid var(--line);
+      padding: clamp(30px, 5vw, 54px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      background: rgba(0,0,0,.16);
+    }
+
+    .contact-item small {
+      display: block;
+      color: #8e8e95;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .contact-item strong {
+      font-size: 1.08rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 0 42px;
+      color: #898990;
+      font-size: .88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 920px) {
+      .nav-links {
+        position: fixed;
+        top: 76px;
+        left: 20px;
+        right: 20px;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #17171b;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: .2s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+
+
+      .brand-mark {
+        width:96px;
+        height:58px;
+        flex-basis:96px;
+      }
+
+      .brand-text strong {
+        font-size: .88rem;
+      }
+      .menu-toggle { display: block; }
+      .nav-phone { display: none; }
+
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero-content h1 {
+        order: 1;
+        width: 100%;
+      }
+
+      .hero-copy {
+        order: 2;
+        width: 100%;
+      }
+
+      .hero-image {
+        order: 3;
+        width: 100%;
+        min-height: 310px;
+        margin: 8px 0 10px;
+      }
+
+      .hero-image img {
+        width: min(80%, 320px);
+        margin: 0 auto;
+      }
+
+      .hero-brands {
+        order: 4;
+        width: 100%;
+      }
+
+      .hero-actions {
+        order: 5;
+        width: 100%;
+      }
+      .about-grid,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero{
+        padding-top:40px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 72px;
+      }
+
+      .hero-image {
+        min-height: 390px;
+      }
+
+      .facts-grid,
+      .services-grid,
+      .brand-grid,
+      .process-grid,
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .reviews-summary {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .contact-side {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-video-desktop {
+        display: none !important;
+      }
+
+      .hero-animation-mobile {
+        display: block !important;
+      }
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .section { padding: 72px 0; }
+      .hero { padding: 60px 0 54px; }
+      .hero-grid { gap: 38px; }
+      .hero h1 { font-size: clamp(2.9rem, 16vw, 4.65rem); }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .facts-grid,
+      .services-grid,
+      .brand-grid,
+      .process-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .score-group { align-items: flex-start; }
+      .hero-image { min-height: 310px; }
+      .brand-text span { display: none; }
+      .contact-phone { font-size: clamp(1.55rem, 8vw, 2.2rem); }
+      .footer-inner { flex-direction: column; }
+    }
+}
+
+
+    /* Animovana prevodovka s pruhlednym pozadim */
+    .hero-image {
+      overflow: visible;
+      isolation: auto;
+      background: transparent;
+    }
+
+    .hero-video {
+      display: block;
+      width: min(100%, 520px);
+      max-width: 520px;
+      height: auto;
+      margin: 0 auto;
+      object-fit: contain;
+      mix-blend-mode: normal;
+      filter: drop-shadow(0 28px 30px rgba(0,0,0,.5));
+      transform-origin: 52% 62%;
+      will-change: transform, opacity, filter;
+    }
+
+
+    .hero-animation-mobile {
+      display: none;
+    }
+
+    .hero-image.visible .hero-video {
+      animation: gearbox-video-enter 1.05s cubic-bezier(.2,.75,.25,1) both;
+    }
+
+    @keyframes gearbox-video-enter {
+      from { opacity: 0; transform: translateY(22px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 920px) {
+      .hero-video { width: min(100%, 420px); }
+    }
+
+    @media (max-width: 620px) {
+      .hero-image {
+        width: min(100%, 360px) !important;
+        max-width: 360px !important;
+        min-height: 270px;
+        margin: 10px auto 18px !important;
+        overflow: visible !important;
+        background: transparent !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+      }
+
+      .hero-video {
+        width: min(100%, 340px) !important;
+        max-width: 340px !important;
+        mix-blend-mode: normal !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+      }
+    }
+
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#uvod" class="brand" aria-label="Martin Křapka – přejít na úvod">
+        <div class="brand-mark">
+          <img src="logo-martin-krapka4.png" alt="Martin Křapka – Opravy převodovek">
+        </div>
+        <div class="brand-text">
+          <strong>Martin Křapka &amp; Opravy převodovek</strong>
+          <span>Férový přístup, kvalitní opravy a dlouholeté zkušenosti.</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Otevřít menu" aria-expanded="false"><span></span></button>
+
+      <ul class="nav-links">
+        <li><a href="#o-nas">O nás</a></li>
+        <li><a href="#recenze">Recenze</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+
+      <a class="nav-phone" href="tel:+420608208060">+420 608 208 060</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="uvod">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <h1>Opravy a repase <span>převodovek</span></h1>
+
+          <p class="hero-copy">
+            Opravujeme automobilové převodovky výměnným způsobem. Repasované převodovky máme skladem, osobní odběr nebo dopravu řešíme po dohodě.
+          </p>
+
+          <div class="hero-image reveal">
+            <video class="hero-video hero-video-desktop" autoplay muted loop playsinline preload="auto" aria-label="Animovaná automobilová převodovka">
+              <source src="prevodovka-animace-transparent.webm" type="video/webm">
+              <source src="prevodovka-animace(2)-opraveno.mp4" type="video/mp4">
+            </video>
+            <img class="hero-video hero-animation-mobile" src="prevodovka-animace-mobile.apng" alt="Animovaná automobilová převodovka">
+          </div>
+
+          <div class="hero-brands">
+            <span>Nejčastěji opravujeme</span>
+            <strong>Volkswagen · Škoda · Audi · Seat</strong>
+            <p>Ostatní značky jsou možné po předchozí telefonické domluvě.</p>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+420608208060">Kontakt: +420 608 208 060</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RYCHLÉ INFORMACE -->
+    <section class="quick-facts">
+      <div class="container facts-grid">
+        <div class="fact reveal"><strong>Výměnný způsob</strong><span>Rychlejší řešení bez zbytečného čekání.</span></div>
+        <div class="fact reveal"><strong>Převodovky skladem</strong><span>Dostupnost ověříme telefonicky.</span></div>
+        <div class="fact reveal"><strong>Osobní odběr</strong><span>Nebo doprava po vzájemné dohodě.</span></div>
+        <div class="fact reveal"><strong>Přímá domluva</strong><span>Bez složitého objednávkového systému.</span></div>
+      </div>
+    </section>
+
+    <!-- O NÁS -->
+    <section class="section" id="o-nas">
+      <div class="container about-grid">
+        <div class="reveal">
+          <h2 class="section-title">Bez zbytečných řečí a složitostí</h2>
+          <p class="section-copy">
+            Každou zakázku řešíme individuálně. Vše s vámi předem probereme a navrhneme nejvhodnější způsob opravy převodovky.
+          </p>
+
+          <ul class="about-list">
+            <li>Individuální posouzení každé zakázky</li>
+            <li>Jasná telefonická domluva předem</li>
+            <li>Praktické řešení podle konkrétní závady</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- GOOGLE RECENZE -->
+    <section class="section reviews" id="recenze">
+      <div class="container">
+        <div class="eyebrow reveal">Hodnocení zákazníků</div>
+        <h2 class="section-title reveal">Zkušenosti zákazníků z Google</h2>
+        <p class="section-copy reveal">
+          Níže jsou vybraná veřejná hodnocení zákazníků. Kliknutím na tlačítko se otevřou všechny recenze přímo v Google Maps.
+        </p>
+
+        <div class="reviews-summary reveal">
+          <div class="score-group">
+            <div>
+              <span class="google-label">Google hodnocení</span>
+              <strong class="score-number">5,0</strong>
+            </div>
+            <div>
+              <div class="stars" aria-label="5 hvězdiček">★★★★★</div>
+              <p class="reviews-count">30 hodnocení na Google</p>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="https://www.google.com/maps/place/Autoservis+G%C3%A1l+%26+R%C5%AF%C5%BEi%C4%8Dka/@50.5078898,13.6991679,17z/data=!4m8!3m7!1s0x470a20e8b8cc2e71:0xaf1bcd48a75a9deb!8m2!3d50.5078898!4d13.6991679!9m1!1b1!16s%2Fg%2F11cjp5flsb?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Přečíst všechny recenze</a>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <h3 class="review-author">Martin Břešťal</h3>
+            <p class="review-meta">Místní průvodce · 59 recenzí · 17 fotek</p>
+            <p class="review-date">Před měsícem</p>
+            <p class="review-text">Servis určitě doporučuji, pan Křapka byl ochotný, skvělá komunikace a vše bylo bez problémů.</p>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <h3 class="review-author">Zdeněk Voráček</h3>
+            <p class="review-meta">Místní průvodce · 11 recenzí</p>
+            <p class="review-date">Před 9 měsíci</p>
+            <p class="review-text">Super servis, vstřícnost, ochota a kvalitně odvedená práce. Oprava převodovky proběhla rychleji, než bylo původně domluveno.</p>
+            <details>
+              <summary>Zobrazit celou recenzi</summary>
+              <p class="review-text">Chtěl bych touto cestou moc poděkovat servisu převodovek, panu Křepkovi a panu Gálovi. Po poruše převodovky na voze Seat Ateca mi německý servis nabídl pouze novou převodovku za 13 000 eur. Po obvolání mnoha opraven jsem se dostal na tento servis. Přístup byl velmi ochotný a vstřícný. Přestože byla avizována delší čekací doba, vozidlo bylo opraveno už za osm dní. Po dohodě jsem si ho mohl vyzvednout i večer po směně. Za mě skvělý servis, ochota, kvalita práce a velmi příjemné jednání.</p>
+            </details>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <h3 class="review-author">Stanislav Bříza</h3>
+            <p class="review-meta">4 recenze</p>
+            <p class="review-date">Před 2 lety</p>
+            <p class="review-text">Naprosto úžasný servis! Super jednání, rychlost opravy a dobrá cena. Mnohokrát děkuji. Mohu doporučit všem.</p>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <h3 class="review-author">Andrew B.</h3>
+            <p class="review-meta">Místní průvodce · 82 recenzí · 138 fotek</p>
+            <p class="review-date">Před 7 lety</p>
+            <p class="review-text">Roky zkušeností dělají svoje. Pro koncernové vozy VW, Škoda nebo Audi velmi dobrý servis. Za tři roky jsem spokojený a otec, který tam jezdí déle, také.</p>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <h3 class="review-author">Pavel Kučera</h3>
+            <p class="review-meta">1 recenze</p>
+            <p class="review-date">Před měsícem</p>
+            <p class="review-text">Super přístup, auto opravené.</p>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <h3 class="review-author">Jan Leško</h3>
+            <p class="review-meta">Místní průvodce · 417 recenzí · 675 fotek</p>
+            <p class="review-date">Upraveno před 11 měsíci</p>
+            <p class="review-text">Parádní přístup, rychlý servis, oprava DSG, doporučuji.</p>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <h3 class="review-author">Josef Bartko</h3>
+            <p class="review-meta">2 recenze · 1 fotka</p>
+            <p class="review-date">Před rokem</p>
+            <p class="review-text">Profesionální jednání, rychlost.</p>
+          </article>
+        </div>
+
+        <div class="reviews-footer reveal">
+          <a class="btn btn-primary" href="https://www.google.com/maps/place/Autoservis+G%C3%A1l+%26+R%C5%AF%C5%BEi%C4%8Dka/@50.5078898,13.6991679,17z/data=!4m8!3m7!1s0x470a20e8b8cc2e71:0xaf1bcd48a75a9deb!8m2!3d50.5078898!4d13.6991679!9m1!1b1!16s%2Fg%2F11cjp5flsb?entry=ttu&g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Zobrazit všech 30 recenzí na Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="contact-wrap reveal">
+          <div class="contact-main">
+            <div class="contact-logo">
+              <img src="logo-martin-krapka4.png" alt="Martin Křapka – Opravy převodovek">
+            </div>
+            <div class="eyebrow">Kontakt</div>
+            <h2>Potřebujete poradit s převodovkou?</h2>
+            <p>Sdělte nám telefonicky značku modelu vozu a případně označení převodovky.</p>
+            <a class="contact-phone" href="tel:+420608208060">+420 608 208 060</a>
+          </div>
+
+          <aside class="contact-side">
+            <div class="contact-item">
+              <small>Domluva</small>
+              <strong>Telefonicky předem</strong>
+            </div>
+            <div class="contact-item">
+              <small>Předání</small>
+              <strong>Osobní odběr nebo doprava po dohodě</strong>
+            </div>
+            <div class="contact-item">
+              <small>Značky</small>
+              <strong>VW, Škoda, Audi, Seat a další dle dohody</strong>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Martin Křapka – Opravy převodovek</span>
+      <a href="#uvod">Zpět nahoru ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const heroVideo = document.querySelector('.hero-video');
+
+    const playHeroVideo = () => {
+      if (!heroVideo) return;
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.loop = true;
+      heroVideo.playsInline = true;
+      const playPromise = heroVideo.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {});
+      }
+    };
+
+    if (heroVideo) {
+      heroVideo.addEventListener('loadeddata', playHeroVideo);
+      heroVideo.addEventListener('canplay', playHeroVideo);
+      window.addEventListener('pageshow', playHeroVideo);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) playHeroVideo();
+      });
+      document.addEventListener('touchstart', playHeroVideo, { once: true, passive: true });
+      document.addEventListener('click', playHeroVideo, { once: true });
+      playHeroVideo();
+    }
+  </script>
+</body>
+</html>
