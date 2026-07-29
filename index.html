@@ -1015,6 +1015,13 @@
     }
 
     @media (max-width: 620px) {
+      .hero-video-desktop {
+        display: none !important;
+      }
+
+      .hero-animation-mobile {
+        display: block !important;
+      }
       .container {
         width: min(calc(100% - 28px), var(--max));
       }
@@ -1059,6 +1066,11 @@
       filter: drop-shadow(0 28px 30px rgba(0,0,0,.5));
       transform-origin: 52% 62%;
       will-change: transform, opacity, filter;
+    }
+
+
+    .hero-animation-mobile {
+      display: none;
     }
 
     .hero-image.visible .hero-video {
@@ -1136,10 +1148,11 @@
           </p>
 
           <div class="hero-image reveal">
-            <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-label="Animovaná automobilová převodovka">
+            <video class="hero-video hero-video-desktop" autoplay muted loop playsinline preload="auto" aria-label="Animovaná automobilová převodovka">
               <source src="prevodovka-animace-transparent.webm" type="video/webm">
               <source src="prevodovka-animace(2)-opraveno.mp4" type="video/mp4">
             </video>
+            <img class="hero-video hero-animation-mobile" src="prevodovka-animace-mobile.apng" alt="Animovaná automobilová převodovka">
           </div>
 
           <div class="hero-brands">
