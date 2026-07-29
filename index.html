@@ -1044,6 +1044,7 @@
     /* Animovana prevodovka - velikost puvodniho obrazku a plynule okraje */
     .hero-image {
       overflow: visible;
+      isolation: auto;
     }
 
     .hero-video {
@@ -1053,7 +1054,7 @@
       height: auto;
       margin: 0 auto;
       object-fit: contain;
-      mix-blend-mode: screen;
+      mix-blend-mode: screen !important;
       filter: contrast(1.08) brightness(.96) drop-shadow(0 28px 30px rgba(0,0,0,.5));
       -webkit-mask-image: radial-gradient(ellipse 88% 84% at 50% 50%, #000 58%, rgba(0,0,0,.96) 70%, rgba(0,0,0,.5) 82%, transparent 100%);
       mask-image: radial-gradient(ellipse 88% 84% at 50% 50%, #000 58%, rgba(0,0,0,.96) 70%, rgba(0,0,0,.5) 82%, transparent 100%);
@@ -1122,8 +1123,8 @@
             Opravujeme automobilové převodovky výměnným způsobem. Repasované převodovky máme skladem, osobní odběr nebo dopravu řešíme po dohodě.
           </p>
 
-          <div class="hero-image reveal">
-            <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="prevodovka-hero.png" aria-label="Animovaná automobilová převodovka">
+          <div class="hero-image reveal" style="width:100%; max-width:520px; margin:0 auto; overflow:visible; isolation:auto;">
+            <video class="hero-video" style="display:block; width:520px !important; max-width:100% !important; height:auto !important; margin:0 auto;" autoplay muted loop playsinline preload="metadata" poster="prevodovka-hero.png" aria-label="Animovaná automobilová převodovka">
               <source src="prevodovka-animace(2).mp4" type="video/mp4">
             </video>
           </div>
