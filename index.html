@@ -1107,6 +1107,26 @@
       }
     }
 
+
+    /* Zobrazeni jedine animace podle velikosti obrazovky */
+    .hero-video-desktop {
+      display: block !important;
+    }
+
+    .hero-animation-mobile {
+      display: none !important;
+    }
+
+    @media (max-width: 620px) {
+      .hero-video-desktop {
+        display: none !important;
+      }
+
+      .hero-animation-mobile {
+        display: block !important;
+      }
+    }
+
 </style>
 </head>
 <body>
