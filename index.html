@@ -262,6 +262,31 @@
 
     .hero h1 span {
       color: #ef4040;
+      background: linear-gradient(
+        105deg,
+        #8f1717 0%,
+        #d62828 24%,
+        #ff7777 43%,
+        #fff0f0 50%,
+        #ff6666 57%,
+        #d62828 76%,
+        #8f1717 100%
+      );
+      background-size: 240% 100%;
+      background-position: 100% 50%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gearbox-title-shimmer 5.8s cubic-bezier(.42,0,.58,1) infinite;
+    }
+
+    @keyframes gearbox-title-shimmer {
+      0%, 18% {
+        background-position: 100% 50%;
+      }
+      58%, 100% {
+        background-position: -100% 50%;
+      }
     }
 
     .hero-copy {
