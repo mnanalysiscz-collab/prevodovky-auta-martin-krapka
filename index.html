@@ -1202,10 +1202,10 @@
 
           <div class="hero-image reveal">
             <video class="hero-video hero-video-desktop" autoplay muted loop playsinline preload="auto" aria-label="Animovaná automobilová převodovka">
-              <source src="prevodovka-animace-transparent-8s.webm" type="video/webm">
-              <source src="prevodovka-animace(2)-opraveno.mp4" type="video/mp4">
+              <source src="prevodovka-animace-transparent-8s.webm" type="video/webm" media="(min-width: 621px)">
+              <source src="prevodovka-animace(2)-opraveno.mp4" type="video/mp4" media="(min-width: 621px)">
             </video>
-            <img class="hero-video hero-animation-mobile" src="prevodovka-animace-mobile-8s.apng" alt="Animovaná automobilová převodovka">
+            <img class="hero-video hero-animation-mobile" data-src="prevodovka-animace-mobile-8s[1].webp" width="420" height="313" alt="Animovaná automobilová převodovka">
           </div>
 
           <div class="hero-brands">
@@ -1414,7 +1414,22 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    const heroVideo = document.querySelector('.hero-video');
+    // Mobilni animaci nacitame jen na displejich do 620 px.
+    // Desktop tak zbytecne nestahuje mobilni soubor.
+    const mobileHeroAnimation = document.querySelector('.hero-animation-mobile');
+    const mobileHeroQuery = window.matchMedia('(max-width: 620px)');
+
+    const loadMobileHeroAnimation = () => {
+      if (!mobileHeroAnimation || !mobileHeroQuery.matches || mobileHeroAnimation.src) return;
+      mobileHeroAnimation.src = mobileHeroAnimation.dataset.src;
+    };
+
+    loadMobileHeroAnimation();
+    if (typeof mobileHeroQuery.addEventListener === 'function') {
+      mobileHeroQuery.addEventListener('change', loadMobileHeroAnimation);
+    }
+
+    const heroVideo = document.querySelector('.hero-video-desktop');
 
     const playHeroVideo = () => {
       if (!heroVideo) return;
