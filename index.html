@@ -133,12 +133,17 @@
 
     .nav-phone {
       margin-left: 18px;
-      margin-right: calc((var(--max) - 100vw) / 2 + 54px);
+      margin-right: calc((var(--max) - 100vw) / 2 + 24px);
+    }
+
+    .nav-links,
+    .nav-phone {
+      transform: translateX(-35px);
     }
 
     @media (min-width: 1209px) {
       .nav-phone {
-        margin-right: calc((var(--max) - 100vw) / 2 + 54px);
+        margin-right: calc((var(--max) - 100vw) / 2 + 24px);
       }
     }
 
@@ -963,6 +968,11 @@
     }
 
     @media (max-width: 920px) {
+      .nav-links,
+      .nav-phone {
+        transform: none;
+      }
+
       .nav-links {
         position: fixed;
         margin-left: 0;
