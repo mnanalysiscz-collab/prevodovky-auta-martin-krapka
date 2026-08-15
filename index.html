@@ -123,8 +123,14 @@
       height: 76px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 24px;
+      width: calc(100% - 48px);
+      max-width: none;
+    }
+
+    .nav-phone {
+      margin-left: 18px;
     }
 
     .brand {
@@ -176,6 +182,7 @@
       align-items: center;
       gap: 28px;
       list-style: none;
+      margin-left: auto;
     }
 
     .nav-links a {
@@ -947,8 +954,13 @@
     }
 
     @media (max-width: 920px) {
+      .nav {
+        width: min(calc(100% - 40px), var(--max));
+      }
+
       .nav-links {
         position: fixed;
+        margin-left: 0;
         top: 76px;
         left: 20px;
         right: 20px;
