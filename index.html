@@ -111,9 +111,10 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(13,13,15,.88);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(16px);
+      background: rgba(13,13,15,.16);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .nav {
@@ -385,8 +386,8 @@
       z-index: -1;
       left: 12%;
       right: 2%;
-      bottom: 7%;
-      height: 20%;
+      bottom: 1%;
+      height: 16%;
       border-radius: 50%;
       background: radial-gradient(ellipse at center, rgba(0,0,0,.38) 0%, rgba(0,0,0,.16) 42%, transparent 72%);
       filter: blur(22px);
@@ -1097,13 +1098,13 @@
 
     .hero-video {
       display: block;
-      width: min(100%, 520px);
-      max-width: 520px;
+      width: min(100%, 475px);
+      max-width: 475px;
       height: auto;
-      margin: 0 auto;
+      margin: 72px auto 0;
       object-fit: contain;
       mix-blend-mode: normal;
-      filter: drop-shadow(0 28px 30px rgba(0,0,0,.5));
+      filter: drop-shadow(0 22px 24px rgba(0,0,0,.48));
       transform-origin: 52% 62%;
       will-change: transform, opacity, filter;
     }
@@ -1123,7 +1124,10 @@
     }
 
     @media (max-width: 920px) {
-      .hero-video { width: min(100%, 420px); }
+      .hero-video {
+        width: min(100%, 400px);
+        margin-top: 28px;
+      }
     }
 
     @media (max-width: 620px) {
@@ -1141,6 +1145,7 @@
       .hero-video {
         width: min(100%, 340px) !important;
         max-width: 340px !important;
+        margin-top: 10px !important;
         mix-blend-mode: normal !important;
         -webkit-mask-image: none !important;
         mask-image: none !important;
