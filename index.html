@@ -125,12 +125,21 @@
       align-items: center;
       justify-content: flex-start;
       gap: 24px;
-      width: calc(100% - 48px);
-      max-width: none;
+    }
+
+    .nav-links {
+      margin-left: auto;
     }
 
     .nav-phone {
       margin-left: 18px;
+      margin-right: calc((var(--max) - 100vw) / 2 + 24px);
+    }
+
+    @media (min-width: 1209px) {
+      .nav-phone {
+        margin-right: calc((var(--max) - 100vw) / 2 + 24px);
+      }
     }
 
     .brand {
@@ -954,10 +963,6 @@
     }
 
     @media (max-width: 920px) {
-      .nav {
-        width: min(calc(100% - 40px), var(--max));
-      }
-
       .nav-links {
         position: fixed;
         margin-left: 0;
@@ -994,7 +999,10 @@
         font-size: .88rem;
       }
       .menu-toggle { display: block; }
-      .nav-phone { display: none; }
+      .nav-phone {
+        display: none;
+        margin-right: 0;
+      }
 
       .hero-content {
         display: flex;
