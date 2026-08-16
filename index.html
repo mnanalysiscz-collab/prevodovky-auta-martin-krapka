@@ -1212,6 +1212,236 @@
       }
     }
 
+
+    /* Mobile-only optimization — desktop untouched */
+    @media (max-width: 620px) {
+      html {
+        scroll-padding-top: 76px;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .site-header {
+        position: fixed;
+        background: rgba(13,13,15,.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .nav {
+        height: 68px;
+        gap: 10px;
+      }
+
+      .brand {
+        flex: 1 1 auto;
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .brand-mark {
+        width: 78px;
+        height: 48px;
+        flex-basis: 78px;
+      }
+
+      .brand-text strong {
+        display: block;
+        max-width: 170px;
+        font-size: .78rem;
+        line-height: 1.15;
+      }
+
+      .menu-toggle {
+        flex: 0 0 42px;
+      }
+
+      .nav-links {
+        top: 76px;
+        left: 14px;
+        right: 14px;
+        padding: 16px;
+        gap: 4px;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 12px 10px;
+        border-radius: 10px;
+        font-size: 1rem;
+      }
+
+      .nav-links a:active {
+        background: rgba(255,255,255,.06);
+      }
+
+      .container {
+        width: min(calc(100% - 32px), var(--max));
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 10vw, 2.65rem);
+        line-height: 1.05;
+      }
+
+      .section-copy {
+        margin-top: 14px;
+        font-size: .98rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 104px 0 46px;
+        background-position: 58% center;
+      }
+
+      .hero-content {
+        align-items: stretch;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 15vw, 4.2rem);
+        line-height: .92;
+        letter-spacing: -.055em;
+      }
+
+      .hero-copy {
+        margin-top: 20px;
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .hero-image {
+        width: 100% !important;
+        max-width: 340px !important;
+        min-height: 230px;
+        margin: 4px auto 10px !important;
+      }
+
+      .hero-animation-mobile {
+        width: min(100%, 330px) !important;
+        max-width: 330px !important;
+        height: auto;
+        margin: 0 auto !important;
+      }
+
+      .hero-image::after {
+        left: 4%;
+        right: 4%;
+        bottom: 0;
+        height: 30%;
+        filter: blur(16px);
+        transform: scaleX(1.05) scaleY(.72);
+      }
+
+      .hero-brands {
+        margin-top: 10px;
+        margin-bottom: 22px;
+        padding: 18px 18px;
+      }
+
+      .hero-brands strong {
+        font-size: 1.08rem;
+        line-height: 1.35;
+      }
+
+      .hero-brands p {
+        font-size: .9rem;
+      }
+
+      .hero-actions {
+        margin-top: 0;
+      }
+
+      .btn {
+        min-height: 50px;
+        padding: 0 18px;
+        border-radius: 12px;
+      }
+
+      .about-list {
+        gap: 12px;
+      }
+
+      .about-list li {
+        padding-left: 26px;
+      }
+
+      .reviews-summary {
+        margin-top: 28px;
+        padding: 20px;
+        gap: 18px;
+      }
+
+      .score-group {
+        width: 100%;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .score-number {
+        font-size: 3.6rem;
+      }
+
+      .reviews-grid {
+        gap: 14px;
+      }
+
+      .review-card {
+        min-height: 0;
+        padding: 20px;
+      }
+
+      .reviews-footer {
+        margin-top: 18px;
+      }
+
+      .contact-wrap {
+        border-radius: 18px;
+      }
+
+      .contact-main,
+      .contact-side {
+        padding: 20px;
+      }
+
+      .contact-logo {
+        width: min(100%, 300px);
+        margin-bottom: 20px;
+      }
+
+      .contact-main h2 {
+        font-size: clamp(1.8rem, 9vw, 2.35rem);
+        line-height: 1.05;
+      }
+
+      .contact-phone {
+        display: block;
+        margin-top: 24px;
+        font-size: clamp(1.55rem, 8vw, 2rem);
+        overflow-wrap: anywhere;
+      }
+
+      .contact-side {
+        gap: 18px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .footer-inner > div {
+        text-align: left !important;
+      }
+    }
+
 </style>
 </head>
 <body>
