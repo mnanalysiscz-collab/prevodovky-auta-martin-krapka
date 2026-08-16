@@ -1673,6 +1673,137 @@
       .contact-layout .contact-form-card { width: min(100%, 780px); margin-inline: auto; }
     }
 
+
+
+    /* Kompaktnejsi kontakt + poptavkovy formular */
+    #kontakt.section {
+      padding: 58px 0;
+    }
+
+    #kontakt .contact-layout {
+      width: min(100%, 960px);
+      grid-template-columns: .9fr 1.1fr;
+      gap: 14px;
+    }
+
+    #kontakt .contact-wrap,
+    #kontakt .contact-form-card {
+      border-radius: 18px;
+    }
+
+    #kontakt .contact-main {
+      padding: 20px 22px 18px;
+    }
+
+    #kontakt .contact-logo {
+      width: min(100%, 230px);
+      margin: 0 auto 18px;
+    }
+
+    #kontakt .contact-main h2 {
+      font-size: clamp(1.55rem, 2.2vw, 1.9rem);
+      line-height: 1.02;
+    }
+
+    #kontakt .contact-main > p {
+      margin-top: 8px;
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+
+    #kontakt .contact-phone {
+      margin-top: 18px;
+      font-size: clamp(1.35rem, 2vw, 1.65rem);
+    }
+
+    #kontakt .contact-side {
+      padding: 16px 20px;
+      gap: 12px 18px;
+    }
+
+    #kontakt .contact-item small {
+      font-size: .7rem;
+      margin-bottom: 3px;
+    }
+
+    #kontakt .contact-item strong {
+      font-size: .9rem;
+      line-height: 1.35;
+    }
+
+    #kontakt .contact-form-card {
+      padding: 20px 22px;
+    }
+
+    #kontakt .contact-form-card .eyebrow {
+      margin-bottom: 8px;
+      font-size: .72rem;
+    }
+
+    #kontakt .contact-form-card h3 {
+      font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+    }
+
+    #kontakt .contact-form-card > p {
+      margin-top: 7px;
+      font-size: .88rem;
+      line-height: 1.45;
+    }
+
+    #kontakt .lead-form {
+      margin-top: 16px;
+      gap: 11px 12px;
+    }
+
+    #kontakt .form-field {
+      gap: 5px;
+    }
+
+    #kontakt .form-field label {
+      font-size: .8rem;
+    }
+
+    #kontakt .form-field input,
+    #kontakt .form-field textarea {
+      padding: 10px 11px;
+      border-radius: 10px;
+      font-size: .88rem;
+    }
+
+    #kontakt .form-field textarea {
+      min-height: 72px;
+    }
+
+    #kontakt .form-actions {
+      gap: 9px;
+    }
+
+    #kontakt .form-actions .btn {
+      min-height: 44px;
+      padding: 0 17px;
+      font-size: .88rem;
+    }
+
+    #kontakt .form-note {
+      font-size: .7rem;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 920px) {
+      #kontakt .contact-layout {
+        width: min(100%, 620px);
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      #kontakt.section { padding: 44px 0; }
+      #kontakt .contact-main,
+      #kontakt .contact-form-card { padding: 18px; }
+      #kontakt .contact-logo { width: min(100%, 190px); }
+      #kontakt .lead-form { grid-template-columns: 1fr; }
+      #kontakt .form-field-full { grid-column: auto; }
+    }
 </style>
 </head>
 <body>
