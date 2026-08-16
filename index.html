@@ -1217,10 +1217,40 @@
     @media (max-width: 620px) {
       html {
         scroll-padding-top: 76px;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
       }
 
       body {
+        width: 100%;
+        max-width: 100%;
         overflow-x: hidden;
+      }
+
+      header, main, section, footer {
+        width: 100%;
+        max-width: 100vw;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .nav,
+      .hero-content,
+      .reviews-summary,
+      .score-group,
+      .contact-wrap,
+      .contact-main,
+      .contact-side {
+        min-width: 0;
+        max-width: 100%;
       }
 
       .site-header {
@@ -1277,10 +1307,6 @@
         background: rgba(255,255,255,.06);
       }
 
-      .container {
-        width: min(calc(100% - 32px), var(--max));
-      }
-
       .section {
         padding: 58px 0;
       }
@@ -1293,6 +1319,15 @@
       .section-copy {
         margin-top: 14px;
         font-size: .98rem;
+      }
+
+      .brand-text,
+      .hero-copy,
+      .hero-brands,
+      .review-card,
+      .contact-item {
+        min-width: 0;
+        overflow-wrap: anywhere;
       }
 
       .hero {
