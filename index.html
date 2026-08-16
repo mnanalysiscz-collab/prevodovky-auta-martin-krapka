@@ -1804,7 +1804,23 @@
       #kontakt .lead-form { grid-template-columns: 1fr; }
       #kontakt .form-field-full { grid-column: auto; }
     }
-</style>
+
+    .mnanalysis-link {
+      color: var(--red, #e5252a);
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: color .2s ease, text-shadow .2s ease, transform .2s ease;
+    }
+    .mnanalysis-link:hover,
+    .mnanalysis-link:focus-visible {
+      color: #ff454a;
+      text-shadow: 0 0 10px rgba(229, 37, 42, .45);
+      transform: translateY(-1px);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
 </head>
 <body>
 
@@ -2059,7 +2075,7 @@
       <span>© <span id="year"></span> Martin Křapka – Opravy převodovek</span>
       <div style="text-align:right;">
         <a href="#uvod">Zpět nahoru ↑</a><br>
-        <small>Designed &amp; developed by MNAnalysis</small>
+        <small>Designed &amp; developed by <a class="mnanalysis-link" href="https://mnanalysis.cz/" target="_blank" rel="noopener noreferrer">MNAnalysis</a></small>
       </div>
     </div>
   </footer>
