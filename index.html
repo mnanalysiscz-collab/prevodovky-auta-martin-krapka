@@ -178,7 +178,6 @@
       display: flex;
       flex-direction: column;
       line-height: 1.1;
-      transform: translateX(-18px);
     }
 
     .brand-text strong {
@@ -408,15 +407,22 @@
       content: "";
       position: absolute;
       z-index: -1;
-      left: 12%;
-      right: 2%;
-      bottom: 1%;
-      height: 16%;
+      left: 8%;
+      right: 0;
+      bottom: 4%;
+      height: 22%;
       border-radius: 50%;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,.38) 0%, rgba(0,0,0,.16) 42%, transparent 72%);
-      filter: blur(22px);
-      opacity: .72;
-      transform: scale(.92);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,.78) 0%,
+        rgba(0,0,0,.58) 30%,
+        rgba(0,0,0,.30) 52%,
+        rgba(0,0,0,.10) 68%,
+        transparent 82%
+      );
+      filter: blur(16px);
+      opacity: .9;
+      transform: scaleX(1.04) scaleY(.72);
     }
 
     .hero-image img {
