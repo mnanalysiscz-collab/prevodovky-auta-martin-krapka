@@ -976,6 +976,137 @@
       font-size: 1.08rem;
     }
 
+
+    .contact-layout {
+      width: min(100%, 1160px);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .contact-layout .contact-wrap {
+      width: 100%;
+      margin: 0;
+      grid-template-columns: 1fr;
+    }
+
+    .contact-layout .contact-side {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px 22px;
+    }
+
+    .contact-layout .contact-item {
+      flex: 1 1 140px;
+    }
+
+    .contact-form-card {
+      width: 100%;
+      margin: 0;
+      padding: clamp(18px, 2.2vw, 26px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form-card h3 {
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+
+    .contact-form-card > p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .lead-form {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .form-field-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-size: .9rem;
+      font-weight: 800;
+      color: #e7e7ea;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px;
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .form-field textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: rgba(214,40,40,.85);
+      box-shadow: 0 0 0 3px rgba(214,40,40,.12);
+      background: rgba(0,0,0,.3);
+    }
+
+    .form-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .form-actions button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .form-note {
+      color: #8f8f96;
+      font-size: .82rem;
+      line-height: 1.45;
+      flex: 1 1 280px;
+    }
+
+    .form-success {
+      display: none;
+      margin: 0 auto 22px;
+      width: min(100%, 780px);
+      padding: 16px 18px;
+      border: 1px solid rgba(82, 196, 126, .45);
+      border-radius: 14px;
+      background: rgba(82, 196, 126, .1);
+      color: #dff7e8;
+      font-weight: 700;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
     /* Footer */
     footer {
       padding: 30px 0 42px;
@@ -1516,6 +1647,16 @@
         gap: 18px;
       }
 
+
+      .lead-form {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-card {
+        border-radius: 18px;
+        padding: 20px;
+      }
+
       .footer-inner {
         align-items: flex-start;
         gap: 14px;
@@ -1524,6 +1665,12 @@
       .footer-inner > div {
         text-align: left !important;
       }
+    }
+
+    @media (max-width: 920px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-layout .contact-wrap,
+      .contact-layout .contact-form-card { width: min(100%, 780px); margin-inline: auto; }
     }
 
 </style>
@@ -1700,6 +1847,11 @@
     <!-- KONTAKT -->
     <section class="section" id="kontakt">
       <div class="container">
+        <div class="form-success" id="form-success" role="status">
+          Děkujeme. Poptávka byla odeslána. Ozveme se vám co nejdříve.
+        </div>
+
+        <div class="contact-layout">
         <div class="contact-wrap reveal">
           <div class="contact-main">
             <div class="contact-logo">
@@ -1707,7 +1859,7 @@
             </div>
             <div class="eyebrow">Kontakt</div>
             <h2>Potřebujete poradit s převodovkou?</h2>
-            <p>Sdělte nám telefonicky značku a model vozu případně označení převodovky.</p>
+            <p>Nejrychlejší je zavolat. Připravte si značku a model vozu, případně označení převodovky.</p>
             <a class="contact-phone" href="tel:+420608208060">+420 608 208 060</a>
           </div>
 
@@ -1725,6 +1877,46 @@
               <strong>VW, Škoda, Audi, Seat a další dle dohody</strong>
             </div>
           </aside>
+        </div>
+
+        <div class="contact-form-card reveal">
+          <div class="eyebrow">Nechcete volat?</div>
+          <h3>Pošlete nezávaznou poptávku opravy</h3>
+          <p>Popište problém s vozem a přidejte telefon. Ozveme se vám a domluvíme další postup.</p>
+
+          <form class="lead-form" id="lead-form" action="https://formsubmit.co/martin.krapka@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nová poptávka z webu prevodovky-most.cz">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://prevodovky-most.cz/?poptavka=odeslana#kontakt">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+
+            <div class="form-field">
+              <label for="name">Jméno</label>
+              <input id="name" name="Jméno" type="text" autocomplete="name" placeholder="Vaše jméno">
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Telefon *</label>
+              <input id="phone" name="Telefon" type="tel" autocomplete="tel" inputmode="tel" placeholder="Např. 777 123 456" required>
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="car">Značka a model auta *</label>
+              <input id="car" name="Vozidlo" type="text" placeholder="Např. Škoda Octavia 2.0 TDI, 2018" required>
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="problem">Co převodovka dělá? *</label>
+              <textarea id="problem" name="Popis problému" placeholder="Např. cuká při rozjezdu, nejde zařadit zpátečka, hlásí chybu převodovky…" required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Odeslat nezávaznou poptávku</button>
+              <p class="form-note">Údaje použijeme pouze pro vyřízení vaší poptávky. Povinná pole jsou označena *.</p>
+            </div>
+          </form>
+        </div>
         </div>
       </div>
     </section>
@@ -1809,6 +2001,37 @@
       document.addEventListener('touchstart', playHeroVideo, { once: true, passive: true });
       document.addEventListener('click', playHeroVideo, { once: true });
       playHeroVideo();
+    }
+
+
+    const leadForm = document.getElementById('lead-form');
+    if (leadForm) {
+      leadForm.addEventListener('submit', () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            lead_source: 'contact_form',
+            page_location: window.location.href,
+            transport_type: 'beacon'
+          });
+        }
+      });
+    }
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'phone_click', {
+            phone_number: '+420608208060',
+            page_location: window.location.href
+          });
+        }
+      });
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('poptavka') === 'odeslana') {
+      const successBox = document.getElementById('form-success');
+      if (successBox) successBox.classList.add('visible');
     }
   </script>
 </body>
